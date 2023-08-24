@@ -4,5 +4,21 @@ Register Page
 {% endblock %}
 
 {% block content %}
-THIS IS THE CONTENT FOR THE REGISTER PAGE
+<div class="container">
+    <form method="POST" class="form-register" style="color:white">
+        {{ form.username.label }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+
+        {{ form.email_address.label }}
+        {{ form.email_address(class="form-control", placeholder="Email") }}
+
+        {{ form.password_hash.label }}
+        {{ form.password_hash(class="form-control", placeholder="password") }}
+
+        {{ form.password_hash_confirm.label }}
+        {{ form.password_hash_confirm(class="form-control", placeholder="password confirm") }}
+
+    </form>
+</div>
+
 {% endblock %}
