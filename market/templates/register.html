@@ -4,21 +4,33 @@ Register Page
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <form method="POST" class="form-register" style="color:white">
-        {{ form.username.label }}
-        {{ form.username(class="form-control", placeholder="Username") }}
 
-        {{ form.email_address.label }}
-        {{ form.email_address(class="form-control", placeholder="Email") }}
+<body class="text-center">
+    <div class="container">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Please create your account
+        </h1>
+        <br>
+        <form method="POST" class="form-register" style="color:white">
+<!--            we are using this to protect the website to external attacks-->
+            {{ form.hidden_tag() }}
 
-        {{ form.password_hash.label }}
-        {{ form.password_hash(class="form-control", placeholder="password") }}
+            {{ form.username.label }}
+            {{ form.username(class="form-control", placeholder="Username") }}
 
-        {{ form.password_hash_confirm.label }}
-        {{ form.password_hash_confirm(class="form-control", placeholder="password confirm") }}
+            {{ form.email_address.label }}
+            {{ form.email_address(class="form-control", placeholder="Email") }}
 
-    </form>
-</div>
+            {{ form.password_hash.label }}
+            {{ form.password_hash(class="form-control", placeholder="password") }}
+
+            {{ form.password_hash_confirm.label }}
+            {{ form.password_hash_confirm(class="form-control", placeholder="password confirm") }}
+
+            {{ form.submit(class="btn btn-lg bt-block btn-primary") }}
+        </form>
+    </div>
+</body>
+
 
 {% endblock %}
