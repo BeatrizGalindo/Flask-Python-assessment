@@ -21,3 +21,8 @@ class RegisterForm(FlaskForm):
     password_hash = PasswordField(label='Password:', validators=[DataRequired(),Length(min=5)])
     password_hash_confirm = PasswordField(label='Confirm your password:', validators=[DataRequired(),EqualTo('password_hash')])
     submit = SubmitField(label='Submit')
+
+class LoginForm(FlaskForm):
+    username = StringField(label='Write here your user name:', validators=[DataRequired(),Length(min=3, max=10)])
+    password_hash = PasswordField(label='Password:', validators=[DataRequired(),Length(min=5)])
+    submit = SubmitField(label='Sign in')
