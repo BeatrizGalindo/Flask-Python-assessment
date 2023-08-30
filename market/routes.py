@@ -16,7 +16,7 @@ def home_page():
 def market_page():
     # This line below will give all the real data from the database
     # items = Item.query.all()
-    # This data below is not in the database, it's jsut in here
+    # This data below is not in the database, it's just in here
     items = [
         {'id': 1, 'name': 'Phone', 'barcode': '893212299897', 'price': 500},
         {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'price': 900},
