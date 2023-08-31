@@ -33,6 +33,9 @@ class User(db.Model, UserMixin):
         # this function will return True or False for checking the attempted password with the stored one.
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
+    # Function to check that the user has enough money to purchase an item.
+    def can_purchase(self, item_object):
+        return self.budget >= item_object.price
 
 class Item(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
