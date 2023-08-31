@@ -33,7 +33,18 @@
         </button>
       </div>
       <div class="modal-body" style="color:gray">
-        Confirm that you want to purchase {{ item.name }} for £{{ item.price }}
+        <form method="POST">
+          {{ purchase_form.hidden_tag() }}
+          <h4 style="color:gray">
+            Confirm that you want to purchase {{ item.name }} for £{{ item.price }}
+          </h4>
+          <br>
+          <h5 style="color:gray">
+            Are you sure?
+          </h5>
+          <br>
+          {{ purchase_form.submit(class="btn btn-outline-success btn-lock") }}
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
