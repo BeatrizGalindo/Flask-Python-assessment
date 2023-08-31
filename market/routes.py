@@ -1,5 +1,5 @@
 from market import app
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from market.models import Item, User
 from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm
 from market import db
@@ -12,10 +12,14 @@ def home_page():
     return render_template('home.html')
 
 
-@app.route('/market')
+@app.route('/market', methods=['GET', 'POST'])
 @login_required
 def market_page():
     purchase_form = PurchaseItemForm()
+    if purchase_form.validate_on_submit():
+        print(request.form.get('purchased_item'))
+
+
     # This line below will give all the real data from the database
     # items = Item.query.all()
     # This data below is not in the database, it's just in here
