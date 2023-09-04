@@ -1,0 +1,33 @@
+<!-- Modal to display selling of item -->
+<div class="modal fade" id="ModalSelling-{{ owned_item.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="color:gray">
+          {{ owned_item.name }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color:gray">
+        <form method="POST">
+          {{ selling_form.hidden_tag() }}
+          <h4 style="color:gray">
+            Confirm that you want to sell {{ owned_item.name }} for £{{ owned_item.price }}
+          </h4>
+          <br>
+          <h5 style="color:gray">
+            Are you sure?
+          </h5>
+          <br>
+          <input id="sold_item" name="sold_item" type="hidden" value="{{owned_item.name}}">
+          {{ selling_form.submit(class="btn btn-outline-success btn-lock") }}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
