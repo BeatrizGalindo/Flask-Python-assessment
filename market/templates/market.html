@@ -44,7 +44,7 @@ Market page
         <h2>Add Items</h2>
         {% include 'includes/adding_items_modals.html' %}
         <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
-                data-toggle="modal" data-target="#ModalAdding">
+                data-toggle="modal" data-target="#ModalAdding" >
             Add a Item
         </button>
         <br>
@@ -55,7 +55,7 @@ Market page
         <br>
         <div class="row">
            {% for owned_item in owned_items %}
-            {% include 'includes/owned_items_modals.html' %}
+            {% include '/includes/owned_items_modals.html' %}
              <div class="col-md-6">
                  <div style="margin-bottom: 5px" class="card text-center bg-dark">
                       <div class="card-body">

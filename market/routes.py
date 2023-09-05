@@ -1,7 +1,7 @@
 from market import app
 from flask import render_template, redirect, url_for, flash, request
 from market.models import Item, User
-from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, AddItemForm
+from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, AddItemForm, ItemForm
 from market import db
 from flask_login import login_user, logout_user, login_required, current_user
 
@@ -17,9 +17,11 @@ def home_page():
 def market_page():
     purchase_form = PurchaseItemForm()
     selling_form = SellItemForm()
-    adding_form = AddItemForm()
-    if request.method == "POST":
-        # Buying an item
+    adding_form = ItemForm()
+    print(request.form)
+    # Buying an item
+    if request.method == "POST" and "purchased_item" in request.form:
+        print('this is the buying')
         purchased_item = request.form.get('purchased_item')
         p_item_object = Item.query.filter_by(name=purchased_item).first()
         if p_item_object:
@@ -30,7 +32,10 @@ def market_page():
                 flash(f"You have purchased {p_item_object.name} for {p_item_object.price}", category="success")
             else:
                 flash(f"You don't have enough money", category="danger")
+
     #     Selling an item
+    if request.method == "POST" and "sold_item" in request.form:
+        print('this is the selling')
         sold_item = request.form.get('sold_item')
         s_item_object = Item.query.filter_by(name=sold_item).first()
         if s_item_object:
@@ -42,16 +47,23 @@ def market_page():
             else:
                 flash(f"Something went wrong")
 
-    #     Adding an item
-
-
-
-        return redirect(url_for('market_page'))
+    # Adding an item
+    if request.method == "POST" and "item_name" in request.form:
+        if adding_form.validate_on_submit():
+            item_to_create = Item(name=adding_form.item_name.data,
+                                  price=adding_form.item_price.data,
+                                  barcode=adding_form.item_barcode.data,
+                                  description=adding_form.item_description.data)
+            db.session.add(item_to_create)
+            db.session.commit()
+            # we use flash for all the messages for the users
+            flash(f'Item created successfully', category='success')
 
     # if request.method == "GET":
     items = Item.query.filter_by(owner=None)
-    owned_items = Item.query.filter_by(owner = current_user.id)
-    return render_template('market.html', items=items, purchase_form=purchase_form, owned_items=owned_items, selling_form=selling_form, adding_form=adding_form)
+    owned_items = Item.query.filter_by(owner=current_user.id)
+    return render_template('market.html', items=items, purchase_form=purchase_form, owned_items=owned_items,
+                           selling_form=selling_form, adding_form=adding_form)
 
 
 @app.route('/register', methods=['GET', 'POST'])

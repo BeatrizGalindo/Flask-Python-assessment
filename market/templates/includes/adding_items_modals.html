@@ -1,6 +1,6 @@
 <div class="modal" id="ModalAdding" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <form class="modal-content" method="POST">
             <div class="modal-header">
                 <h5 class="modal-title">Modal title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,29 +10,27 @@
             <div class="modal-body" style="color:gray">
                 <h5 class="modal-title">Add the details of your item in here:</h5>
                 <br>
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Item</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Barcode</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Price</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
-                    </div>
-                </form>
+                <div class="form-register" style="color:deeppink">
+                    {{ adding_form.hidden_tag() }}
+
+                    {{ adding_form.item_name.label }}
+                    {{ adding_form.item_name(class="form-control", placeholder="Item name") }}
+
+                    {{ adding_form.item_price.label }}
+                    {{ adding_form.item_price(class="form-control", placeholder="Item price") }}
+
+                    {{ adding_form.item_barcode.label }}
+                    {{ adding_form.item_barcode(class="form-control", placeholder="Item barcode") }}
+
+                    {{ adding_form.item_description.label }}
+                    {{ adding_form.item_description(class="form-control", placeholder="Item description") }}
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                {{ adding_form.submit(class="btn btn-outline-success btn-lock") }}
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+

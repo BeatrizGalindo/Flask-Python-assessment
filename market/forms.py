@@ -33,3 +33,10 @@ class SellItemForm(FlaskForm):
     submit = SubmitField(label='Sell Item')
 class AddItemForm(FlaskForm):
     submit = SubmitField(label='Add Item')
+
+class ItemForm(FlaskForm):
+    item_name = StringField(label='Item name:')
+    item_price = StringField(label='Item price:')
+    item_barcode = StringField(label='Item barcode:')
+    item_description = StringField(label='Item description:')
+    submit = SubmitField(label='submit')
