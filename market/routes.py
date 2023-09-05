@@ -1,7 +1,7 @@
 from market import app
 from flask import render_template, redirect, url_for, flash, request
 from market.models import Item, User
-from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, AddItemForm, ItemForm
+from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm, ItemForm, DeleteItemForm
 from market import db
 from flask_login import login_user, logout_user, login_required, current_user
 
@@ -18,6 +18,7 @@ def market_page():
     purchase_form = PurchaseItemForm()
     selling_form = SellItemForm()
     adding_form = ItemForm()
+    delete_form = DeleteItemForm()
     print(request.form)
     # Buying an item
     if request.method == "POST" and "purchased_item" in request.form:
@@ -33,7 +34,7 @@ def market_page():
             else:
                 flash(f"You don't have enough money", category="danger")
 
-    #     Selling an item
+    # Selling an item
     if request.method == "POST" and "sold_item" in request.form:
         print('this is the selling')
         sold_item = request.form.get('sold_item')
@@ -59,11 +60,21 @@ def market_page():
             # we use flash for all the messages for the users
             flash(f'Item created successfully', category='success')
 
-    # if request.method == "GET":
+    # Deleting an item
+    if request.method == "DELETE" in request.form:
+        print('this is the deleting')
+        delete_item = request.form.get('delete_item')
+        d_item_objet = Item.query.filter_by(name=delete_item).first()
+        db.session.delete(d_item_objet)
+        db.session.commit()
+        flash(f"You have delete an item", category="success")
+    else:
+        flash(f"Something went wronggggg")
+
     items = Item.query.filter_by(owner=None)
     owned_items = Item.query.filter_by(owner=current_user.id)
     return render_template('market.html', items=items, purchase_form=purchase_form, owned_items=owned_items,
-                           selling_form=selling_form, adding_form=adding_form)
+                           selling_form=selling_form, adding_form=adding_form, delete_form=delete_form)
 
 
 @app.route('/register', methods=['GET', 'POST'])

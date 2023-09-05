@@ -40,3 +40,6 @@ class ItemForm(FlaskForm):
     item_barcode = StringField(label='Item barcode:')
     item_description = StringField(label='Item description:')
     submit = SubmitField(label='submit')
+
+class DeleteItemForm(FlaskForm):
+    submit = SubmitField(label='Delete Item')

@@ -34,6 +34,9 @@ Market page
                     <button class="btn btn-outline btn-success" data-toggle="modal"
                             data-target="#ModalConfirmation-{{ item.id }}">Purchase this item
                     </button>
+                    <button class="btn btn-outline btn-danger" data-toggle="modal"
+                            data-target="#ModalConfirmationDeletion-{{ item.id }}">Delete this item
+                    </button>
                 </td>
             </tr>
             {% endfor %}
