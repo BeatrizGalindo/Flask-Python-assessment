@@ -6,7 +6,7 @@ Market page
 {% block content %}
 
 <div class="row" style="margin-top: 20px; margin-left: 20px">
-        <div class="col-8">
+    <div class="col-8">
         <h2>Available Items</h2>
         <br>
         <table class="table table-hover table-dark">
@@ -43,15 +43,6 @@ Market page
             </tbody>
         </table>
     </div>
-    <div class="col-8">
-        <h2>Add Items</h2>
-        {% include 'includes/adding_items_modals.html' %}
-        <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
-                data-toggle="modal" data-target="#ModalAdding" >
-            Add a Item
-        </button>
-        <br>
-    </div>
     <div class="col-4">
         <h2>Owned Items</h2>
         <p>Click on sell item to put an item back on the Market</p>
@@ -76,5 +67,14 @@ Market page
            {% endfor %}
         </div>
    </div>
+    <div class="col-8">
+        <h2>Add Items</h2>
+        {% include 'includes/adding_items_modals.html' %}
+        <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
+                data-toggle="modal" data-target="#ModalAdding" >
+            Add a Item
+        </button>
+        <br>
+    </div>
 </div>
 {% endblock %}

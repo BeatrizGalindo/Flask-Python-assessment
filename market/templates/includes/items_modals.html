@@ -67,7 +67,8 @@
         </button>
       </div>
       <div class="modal-body" style="color:gray">
-        <form method="DELETE">
+        <form method="POST">
+          <input type="hidden" name="_method" value="delete">
           {{ delete_form.hidden_tag() }}
           <h4 style="color:gray">
             Confirm that you want to delete {{ item.name }} for £{{ item.price }}

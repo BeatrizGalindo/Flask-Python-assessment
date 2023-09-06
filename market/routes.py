@@ -61,13 +61,16 @@ def market_page():
             flash(f'Item created successfully', category='success')
 
     # Deleting an item
-    if request.method == "DELETE" in request.form:
-        print('this is the deleting')
-        delete_item = request.form.get('delete_item')
-        d_item_objet = Item.query.filter_by(name=delete_item).first()
-        db.session.delete(d_item_objet)
-        db.session.commit()
-        flash(f"You have delete an item", category="success")
+    if request.method == "POST" and request.form.get('_method') == 'delete':
+        if current_user.name == "Admin":
+            print('this is the deleting')
+            delete_item = request.form.get('delete_item')
+            d_item_objet = Item.query.filter_by(name=delete_item).first()
+            db.session.delete(d_item_objet)
+            db.session.commit()
+            flash(f"You have delete an item", category="success")
+        else:
+            flash(f"You are not the admin, you can't delete any object")
     else:
         flash(f"Something went wronggggg")
 
