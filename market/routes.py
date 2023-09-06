@@ -62,7 +62,7 @@ def market_page():
 
     # Deleting an item
     if request.method == "POST" and request.form.get('_method') == 'delete':
-        if current_user.name == "Admin":
+        if current_user.username == "Admin":
             print('this is the deleting')
             delete_item = request.form.get('delete_item')
             d_item_objet = Item.query.filter_by(name=delete_item).first()
