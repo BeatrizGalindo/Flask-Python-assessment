@@ -70,9 +70,7 @@ def market_page():
             db.session.commit()
             flash(f"You have delete an item", category="success")
         else:
-            flash(f"You are not the admin, you can't delete any object")
-    else:
-        flash(f"Something went wronggggg")
+            flash(f"You are not the Admin, you can't delete any object", category="danger")
 
     items = Item.query.filter_by(owner=None)
     owned_items = Item.query.filter_by(owner=current_user.id)
