@@ -31,6 +31,10 @@ flask seed run
 flask run
 ```
 
+```bash
 pip install Flask-Seeder
+```
+
+
 
 
