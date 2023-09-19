@@ -19,9 +19,12 @@ Install also email validation for flask:
 ```bash
 pip install email_validator
 ```
+```bash
+pip install Flask-Seeder
+```
 
 
-## Getting started
+## Getting started, first run the command to populate the seed into the app and then run the app.
 
 ```bash
 flask seed run
@@ -31,9 +34,9 @@ flask seed run
 flask run
 ```
 
-```bash
-pip install Flask-Seeder
-```
+mention
+
+
 
 
 
