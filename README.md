@@ -33,11 +33,3 @@ flask seed run
 ```bash
 flask run
 ```
-
-mention
-
-
-
-
-
-

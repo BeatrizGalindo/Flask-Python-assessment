@@ -21,7 +21,8 @@ def password(plain_text_password):
 class ItemsSeeder(Seeder):
     # run() will be called by Flask-Seeder
     def run(self):
-        Item.__table__.drop(self.db.engine)
+        if !self:
+            Item.__table__.drop(self.db.engine)
         Item.__table__.create(self.db.engine)
 
         for item in items:
