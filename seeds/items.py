@@ -8,7 +8,7 @@ items = [Item(id=1, name="IPhone", price=800, barcode="123456789", description="
          Item(id=3, name="Book", price=20, barcode="456123789", description="How to understand Flask"),
          Item(id=4, name="Pencil", price=5, barcode="789123456", description="Just a simple pencil"),
          Item(id=5, name="Keyboard", price=50, barcode="321698751", description="Very useful for coding"),
-         Item(id=5, name="Trackpad", price=60, barcode="221698751", description="Latest track pad very useful for coding")
+         Item(id=6, name="Trackpad", price=60, barcode="221698751", description="Latest track pad very useful for coding")
          ]
 
 users = [User(id=1, username="Beatriz", email_address="beatriz@users.com", password_hash="654321", budget=2000),
@@ -21,8 +21,7 @@ def password(plain_text_password):
 class ItemsSeeder(Seeder):
     # run() will be called by Flask-Seeder
     def run(self):
-        if !self:
-            Item.__table__.drop(self.db.engine)
+        Item.__table__.drop(self.db.engine)
         Item.__table__.create(self.db.engine)
 
         for item in items:

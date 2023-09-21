@@ -25,12 +25,13 @@ class User(db.Model, UserMixin):
     def password(self):
         return self.password
 
+    # This function stores the passwords in the database hashed.
     @password.setter
     def password(self, plain_text_password):
         self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
 
+    # this function will return True or False for checking the attempted password with the stored one.
     def check_password_correction(self, attempted_password):
-        # this function will return True or False for checking the attempted password with the stored one.
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
     # Function to check that the user has enough money to purchase an item.

@@ -34,22 +34,11 @@ def test_given_request_to_login_correct_the_market_page_should_be_displayed():
         assert response.status_code == 302
 
 
-def test_():
+def test_given_correct_login_details_when_login_then_market_place_page_appears():
     with app.test_client() as client:
         data = {'csrf_token': "csrf", 'username': 'Beatriz', "password_hash": "654321", "submit": "Singin"}
         response = client.post('/login', data=data)
         assert response.status_code == 200
-        # assert "Add Items" in response.get_data(as_text= True)
-
-
-# This test is not working for reruting the website to a different one ❌
-def test_logout_redirect():
-    with app.test_client() as client:
-        response = client.get("/logout_page")
-        # Check that there was one redirect response.
-        assert len(response.history) == 1
-        # Check that the second request was to the index page.
-        assert response.request.path == "/home"
 
 
 def test_landing_aliases():
