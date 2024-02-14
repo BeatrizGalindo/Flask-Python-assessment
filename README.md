@@ -1,5 +1,5 @@
 # Market
-This is a web application built using Python and Flask as a framework.
+This is a web application built using Python and Flask as a framework. 
 
 ## What is the application about?
 
