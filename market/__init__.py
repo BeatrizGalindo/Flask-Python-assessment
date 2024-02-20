@@ -6,7 +6,7 @@ from flask_seeder import FlaskSeeder
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://market_db_omwf_user:5lpqByKe2UKV4JZ60QVMFLtl1VKoUI4u@dpg-cnac2ola73kc73emghr0-a/market_db_omwf'
 app.config['SECRET_KEY'] = '1234'
 # Initialise the database
 db = SQLAlchemy(app)
