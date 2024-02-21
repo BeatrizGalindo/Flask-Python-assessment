@@ -17,7 +17,8 @@ def test_given_app_when_accessing_home_page_expect_200():
 def test_given_app_when_accessing_non_existing_page_expect_404():
     with app.test_client() as client:
         response = client.get('/non_existing')
-        assert response.status_code == 404
+        # assert response.status_code == 404
+        assert response.status_code == 0
 
 
 def test_given_wrong_user_info_to_login_when_calling_signin_in_the_main_page_then_the_login_page_should_appear_again():
