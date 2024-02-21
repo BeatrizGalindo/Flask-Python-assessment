@@ -34,7 +34,7 @@ migrate = Migrate(app, db)
 # Check if the database needs to be initialized
 engine = sa.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], pool_pre_ping=True)
 inspector = sa.inspect(engine)
-if not inspector.has_table("users"):
+if not inspector.has_table("user"):
     # attention
     with app.app_context():
         db.drop_all()
