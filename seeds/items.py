@@ -24,21 +24,21 @@ def password(plain_text_password):
     return password_hash
 
 
-# class ItemsSeeder(Seeder):
-#     # run() will be called by Flask-Seeder
-#     def run(self):
-#         Item.__table__.drop(self.db.engine)
-#         Item.__table__.create(self.db.engine)
-#
-#         for item in items:
-#             print("Adding item: %s" % item)
-#             self.db.session.add(item)
+class ItemsSeeder(Seeder):
+    # run() will be called by Flask-Seeder
+    def run(self):
+        Item.__table__.drop(self.db.engine)
+        Item.__table__.create(self.db.engine)
+
+        for item in items:
+            print("Adding item: %s" % item)
+            self.db.session.add(item)
 
 
 class UserSeeder(Seeder):
     def run(self):
-        # User.__table__.drop(self.db.engine)
-        # User.__table__.create(self.db.engine)
+        User.__table__.drop(self.db.engine)
+        User.__table__.create(self.db.engine)
 
         for user in users:
             user.password_hash = password(user.password_hash)
