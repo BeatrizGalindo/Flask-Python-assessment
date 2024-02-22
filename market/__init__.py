@@ -53,8 +53,8 @@ login_manager.login_view = "login_page"
 login_manager.login_message_category = "info"
 
 # Adding record to database
-seeder = FlaskSeeder()
-seeder.init_app(app, db)
+# seeder = FlaskSeeder()
+# seeder.init_app(app, db)
 
 
 import market.routes
