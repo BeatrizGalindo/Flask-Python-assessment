@@ -13,6 +13,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 if os.getenv('DATABASE_URL'):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
 else:
+    # check this link
     SQLALCHEMY_DATABASE_URI = 'postgresql://market_amazzon_db_user:d1NVn6KWwW6x1CgtV46kHXkzm4GPWuSs@dpg-cnatn4gl5elc7398foi0-a.frankfurt-postgres.render.com/market_amazzon_db'
 
 
