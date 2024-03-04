@@ -11,7 +11,7 @@ Use the package manager pip:
 ```bash
 pip install flask
 ```
-Install the database:
+Install the database (for a web app running locally):
 ```bash
 pip install flask-sqlalchemy
 ```
@@ -24,7 +24,7 @@ pip install Flask-Seeder
 ```
 
 
-## Getting started, first run the command to populate the seed into the app and then run the app.
+## Getting started to run it locally, first run the command to populate the seed into the app and then run the app.
 
 ```bash
 flask seed run
