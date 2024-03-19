@@ -6,7 +6,11 @@ The web app is hosted in a GitHub repository and uses GitHub Actions for the pip
 
 ## What is the application about?
 
-The application that I develop it’s a very simplified version of an e-commerce website.
+The application that I've developed it’s a very simplified version of an e-commerce website.
+
+## To access the app hosted on Render.com
+https://market-amazzon.onrender.com/
+
 
 ## Installation
 
